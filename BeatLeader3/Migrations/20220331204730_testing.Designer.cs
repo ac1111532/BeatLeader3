@@ -3,14 +3,16 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BeatLeader3.Migrations
 {
     [DbContext(typeof(BeatLeader3ContextDb))]
-    partial class BeatLeader3ContextDbModelSnapshot : ModelSnapshot
+    [Migration("20220331204730_testing")]
+    partial class testing
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,6 +36,9 @@ namespace BeatLeader3.Migrations
                     b.Property<int>("Notes")
                         .HasColumnType("int");
 
+                    b.Property<int?>("ScoreID")
+                        .HasColumnType("int");
+
                     b.Property<int>("Slash")
                         .HasColumnType("int");
 
@@ -44,6 +49,8 @@ namespace BeatLeader3.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("BeatmapID");
+
+                    b.HasIndex("ScoreID");
 
                     b.HasIndex("SongID")
                         .IsUnique();
@@ -88,7 +95,7 @@ namespace BeatLeader3.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("BeatmapID1")
+                    b.Property<int>("BeatmapID")
                         .HasColumnType("int");
 
                     b.Property<bool>("FullCombo")
@@ -110,8 +117,6 @@ namespace BeatLeader3.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("ScoreID");
-
-                    b.HasIndex("BeatmapID1");
 
                     b.ToTable("Score");
                 });
@@ -145,6 +150,10 @@ namespace BeatLeader3.Migrations
 
             modelBuilder.Entity("BeatLeader3.Models.Beatmap", b =>
                 {
+                    b.HasOne("BeatLeader3.Models.Score", null)
+                        .WithMany("beatmap")
+                        .HasForeignKey("ScoreID");
+
                     b.HasOne("BeatLeader3.Models.Song", "song")
                         .WithOne("Beatmap")
                         .HasForeignKey("BeatLeader3.Models.Beatmap", "SongID")
@@ -156,11 +165,7 @@ namespace BeatLeader3.Migrations
 
             modelBuilder.Entity("BeatLeader3.Models.Score", b =>
                 {
-                    b.HasOne("BeatLeader3.Models.Beatmap", "BeatmapID")
-                        .WithMany()
-                        .HasForeignKey("BeatmapID1");
-
-                    b.Navigation("BeatmapID");
+                    b.Navigation("beatmap");
                 });
 
             modelBuilder.Entity("BeatLeader3.Models.Song", b =>

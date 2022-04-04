@@ -12,8 +12,9 @@ namespace BeatLeader3.Models
         public int Bombs { get; set; }
         public int Slash { get; set; }
         public int MapPlays { get; set; }
+        public Song song { get; set; }
 
-        public ICollection<Score>? Score { get; set; }
-        public Song? song { get; set; }
+        public ICollection<Score> Scores { get; set; }
+
     }
 }
