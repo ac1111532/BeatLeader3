@@ -9,6 +9,8 @@ namespace BeatLeader3.Models
     {
         public int ScoreID { get; set; }
 
+        public int BeatmapID { get; set; }
+
         [Required]
         public int Multiplier { get; set; }
 
@@ -19,7 +21,7 @@ namespace BeatLeader3.Models
         public decimal Percentage { get; set; }
 
         [Required]
-        public int score { get; set; }
+        public int? score { get; set; }
 
         [Required]
         public bool FullCombo { get; set; }
