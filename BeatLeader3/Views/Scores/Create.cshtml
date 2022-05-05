@@ -1,10 +1,10 @@
 ﻿@model BeatLeader3.Models.Score
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Create New Score";
 }
 
-<h1>Create</h1>
+<h1>Add a Score</h1>
 
 <h4>Score</h4>
 <hr />
@@ -12,16 +12,6 @@
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="BeatmapID" class="control-label"></label>
-                <input asp-for="BeatmapID" class="form-control" />
-                <span asp-validation-for="BeatmapID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PlayerID" class="control-label"></label>
-                <input asp-for="PlayerID" class="form-control" />
-                <span asp-validation-for="PlayerID" class="text-danger"></span>
-            </div>
             <div class="form-group">
                 <label asp-for="Multiplier" class="control-label"></label>
                 <input asp-for="Multiplier" class="form-control" />

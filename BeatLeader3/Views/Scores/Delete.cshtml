@@ -1,28 +1,16 @@
 ﻿@model BeatLeader3.Models.Score
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Delete Score";
 }
 
-<h1>Delete</h1>
+<h1>Delete Score</h1>
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
     <h4>Score</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BeatmapID)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BeatmapID)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PlayerID)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PlayerID)
-        </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Multiplier)
         </dt>

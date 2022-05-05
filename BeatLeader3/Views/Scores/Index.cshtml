@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<BeatLeader3.Models.Score>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Score List";
 }
 
-<h1>Index</h1>
+<h1>List of Scores</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -12,12 +12,6 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.BeatmapID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PlayerID)
-            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Multiplier)
             </th>
@@ -39,12 +33,6 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.BeatmapID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PlayerID)
-            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Multiplier)
             </td>
