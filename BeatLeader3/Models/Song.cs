@@ -17,7 +17,7 @@ namespace BeatLeader3.Models
 
         [Range(0, 200)]
         [Required]
-        [Display(Name = "Artist Name")]
+        [Display(Name = "Song Length (Seconds)")]
         public int SongLength { get; set; }
 
         [Range(0, 500)]
