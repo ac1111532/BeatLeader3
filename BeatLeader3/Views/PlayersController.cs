@@ -148,5 +148,6 @@ namespace BeatLeader3.Views
         {
             return _context.Player.Any(e => e.PlayerID == id);
         }
+
     }
 }

@@ -85,6 +85,20 @@ namespace BeatLeader3.Views
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+
+        public async Task<IActionResult> Index(string searchString)
+        {
+            var Song = from m in _context.Song
+                         select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                Song = Song.Where(s => s.SongName!.Contains(searchString));
+            }
+
+            return View(await Song.ToListAsync());
+        }
+      
         public async Task<IActionResult> Edit(int id, [Bind("SongID,SongName,SongLength,SongBPM,Size,Artist")] Song song)
         {
             if (id != song.SongID)
